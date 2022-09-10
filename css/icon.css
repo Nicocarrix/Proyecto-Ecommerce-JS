@@ -1,0 +1,29 @@
+.logo {
+  font-size: 37px;
+  margin-left: 15px;
+  color: #fd7e14;
+}
+
+.menu {
+  font-size: 25px;
+  color: #3b3b3b;
+}
+
+.cart-icon {
+  color: #fd7e14;
+  font-size: 25px;
+}
+
+.navbar-light .name-logo {
+  margin-left: 6px;
+}
+
+.search {
+  color: #fff;
+}
+
+.eliminateIcon {
+  text-align: end;
+  cursor: pointer;
+  margin: 5px 5px 0 0;
+}
