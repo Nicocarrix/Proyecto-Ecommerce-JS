@@ -4,6 +4,16 @@
   }
 }
 
+@media screen and (max-width: 1150px) {
+  .formulario__validacion-estado {
+    left: 94%;
+  }
+
+  .formulario__validacion-estado-ccv {
+    left: 82%;
+  }
+}
+
 @media screen and (min-width: 500px) {
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
@@ -34,9 +44,13 @@
   }
 }
 
-@media screen and (min-width: 950px) {
-  .menu {
-    display: none;
+@media screen and (max-width: 992px) {
+  .section-container {
+    margin: 55px auto 0 auto;
+  }
+
+  .contenedor {
+    margin: auto;
   }
 }
 

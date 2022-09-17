@@ -5,6 +5,7 @@ const conatinerCart = document.getElementById('cart-js');
 const priceTotal = document.getElementById('total-id');
 const vaciarCart = document.getElementById('vaciar');
 const finalizarCompra = document.getElementById('finalizar');
+const nav = document.querySelector('nav');
 
 // EVENTOS
 
@@ -62,139 +63,6 @@ vaciarCart.addEventListener('click', (e) => {
 });
 
 // CODIGO ESTATICO
-
-const products = [
-  {
-    id: 0,
-    name: 'BOTAS NIKE COURT VISION MID NBA ROJA',
-    color: 'roja',
-    price: 23099,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/b/o/botas-nike-court-vision-mid-nba-roja-510010dm1186600-1.jpg',
-    category: 'hombre',
-    category2: 'botas',
-  },
-  {
-    id: 1,
-    name: 'ZAPATILLAS NIKE SB BLZR COURT NEGRA',
-    color: 'negra',
-    price: 17619,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/z/a/zapatillas-nike-sb-blzr-court-negra-1-510010cv1658002-1.jpg',
-    category: 'hombre',
-    category2: 'casual',
-  },
-  {
-    id: 2,
-    name: 'ZAPATILLAS RUNNING NIKE AIR ZOOM AZUL',
-    color: 'azul',
-    price: 36299,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/z/a/zapatilla-running-nike-air-zoom-pegasus-37-azul-510010bq9646400-1.jpg',
-    category: 'hombre',
-    category2: 'deporte',
-  },
-  {
-    id: 3,
-    name: 'ZAPATILLA ADIDAS COURT 80S ROJA',
-    color: 'roja',
-    price: 14399,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/1/0/100010ee9674001-1.jpg',
-    category: 'hombre',
-    category2: 'deporte',
-  },
-  {
-    id: 4,
-    name: 'ZAPATILLAS ADIDAS RUN 70S NEGRA',
-    color: 'negra',
-    price: 20999,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/z/a/zapatillas-adidas-run-70s-negra-100010gx3090001-1.jpg',
-    category: 'hombre',
-    category2: 'deporte',
-  },
-  {
-    id: 5,
-    name: 'ZAPATILLAS ADIDAS RUN 70S AZUL',
-    color: 'azul',
-    price: 20999,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/z/a/zapatillas-adidas-run-70s-azul-100010gx3091001-1.jpg',
-    category: 'hombre',
-    category2: 'deporte',
-  },
-  {
-    id: 6,
-    name: 'ZAPATILLAS PUMA SCUDERIA  MIRAGE ROJA',
-    color: 'roja',
-    price: 21449,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/z/a/zapatillas-puma-scuderia-ferrari-mirage-mox-roja-640010306769002-1.jpg',
-    category: 'hombre',
-    category2: 'casual',
-  },
-  {
-    id: 7,
-    name: 'ZAPATILLAS RUNNING PUMA FLYER FLEX NEGRA',
-    color: 'negra',
-    price: 12999,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/z/a/zapatillas-running-puma-flyer-flex-negra-28299952-640010376491005-1.jpg',
-    category: 'hombre',
-    category2: 'casual',
-  },
-  {
-    id: 8,
-    name: 'ZAPATILLAS RUNNING PUMA FLYER FLEX AZUL',
-    color: 'azul',
-    price: 12999,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/z/a/zapatillas-running-puma-flyer-flex-azul---640010376491006-1.jpg',
-    category: 'hombre',
-    category2: 'deporte',
-  },
-  {
-    id: 9,
-    name: 'ZAPATILLAS REEBOK CLASSIC BLANCA',
-    color: 'blanca',
-    price: 26099,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/z/a/zapatillas-reebok-classic-leather-blanca-46966745-111010gy0952001-1.jpg',
-    category: 'hombre',
-    category2: 'casual',
-  },
-  {
-    id: 10,
-    name: 'ZAPATILLA CONVERSE CHUCK TAYLOR ALL STAR CORE OX NEGRA',
-    color: 'negra',
-    price: 16999,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/2/0/200010157196001-1.jpg',
-    category: 'mujer',
-    category2: 'casual',
-  },
-  {
-    id: 11,
-    name: 'ZAPATILLA CONVERSE CHUCK TAYLOR ALL STAR PLATFORM OX MUJER ROJA',
-    color: 'roja',
-    price: 20499,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/2/0/200010557145001-1.jpg',
-    category: 'mujer',
-    category2: 'botas',
-  },
-  {
-    id: 12,
-    name: 'ZAPATILLAS RUNNING PUMA COMET 2 ALT BETA MUJER GRIS',
-    color: 'blanca',
-    price: 14999,
-    cantidad: 1,
-    img: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/z/a/zapatillas-running-puma-comet-2-alt-beta-mujer-gris-16924690-640010195648007-1.jpg',
-    category: 'mujer',
-    category2: 'deporte',
-  },
-];
 
 const categoryA = [
   {
@@ -278,20 +146,30 @@ const renderBrowser = () => {
 };
 
 const renderProducts = () => {
-  for (const productos of products) {
-    newCard = document.getElementById('cards-js');
-    card = document.createElement('div');
-    card.className = 'cards';
-    card.innerHTML += `
-    <img class="img-container" src="${productos.img}"/>
-    <div class="add" >
-    <p class="name">${productos.name}</p> 
-    <p id="price">$${productos.price}</p>
-    <a class="button-add link-light" id="buttonAdd" onclick="addToCart(${productos.id}); addButton();">Add to Cart</a>
-    </div>`;
+  fetch('/data.json')
+    .then((res) => res.json())
+    .then((json) => {
+      console.log('API local en funcionamietno');
 
-    newCard.appendChild(card);
-  }
+      for (const productos of json) {
+        newCard = document.getElementById('cards-js');
+        card = document.createElement('div');
+        card.className = 'cards';
+        card.innerHTML += `
+        <img class="img-container" src="${productos.img}"/>
+        <div class="add" >
+        <p class="name">${productos.name}</p> 
+        <p id="price">$${productos.price}</p>
+        <a class="button-add link-light" id="buttonAdd" onclick="addToCart(${productos.id}); addButton();">Add to Cart</a>
+        </div>`;
+
+        newCard.appendChild(card);
+      }
+    })
+    .catch((e) => {
+      console.log('Error');
+      console.log(e);
+    });
 };
 
 const array = () => {
@@ -341,22 +219,30 @@ const renderCart = () => {
 };
 
 const addToCart = (id, price) => {
-  const acumularP = cart.some((item) => item.id === id);
+  fetch('/data.json')
+    .then((res) => res.json())
+    .then((products) => {
+      console.log('API local en funcionamietno(renderCart)');
+      const acumularP = cart.some((item) => item.id === id);
 
-  if (acumularP) {
-    const item = cart.map((item) => {
-      if (item.id === id) {
-        item.cantidad++;
-        renderCart();
+      if (acumularP) {
+        const item = cart.map((item) => {
+          if (item.id === id) {
+            item.cantidad++;
+            renderCart();
+          }
+        });
+      } else {
+        const foundProduct = products.find((item) => item.id === id);
+        cart.push(foundProduct);
       }
+      total();
+      renderCart();
+    })
+    .catch((e) => {
+      console.log('Error');
+      console.log(e);
     });
-  } else {
-    const foundProduct = products.find((item) => item.id === id);
-    cart.push(foundProduct);
-  }
-
-  total();
-  renderCart();
 };
 
 const removeCart = (cartId) => {
@@ -390,131 +276,141 @@ const total = () => {
 };
 
 const filtrar = () => {
-  //Categoria Hombres
+  fetch('/data.json')
+    .then((res) => res.json())
+    .then((products) => {
+      console.log('API local en funcionamietno (Filtrar)');
 
-  const hombreFilter = document.querySelector('#hombre');
-  const hombre = products.filter((item) => item.category === 'hombre');
-  hombreFilter.textContent = `Hombre (${hombre.length})`;
-  hombreFilter.addEventListener('click', (e) => {
-    e.preventDefault();
-    productsArray = hombre;
+      //Categoria Hombres
 
-    array();
-    console.log(productsArray);
-  });
+      const hombreFilter = document.querySelector('#hombre');
+      const hombre = products.filter((item) => item.category === 'hombre');
+      hombreFilter.textContent = `Hombre (${hombre.length})`;
+      hombreFilter.addEventListener('click', (e) => {
+        e.preventDefault();
+        productsArray = hombre;
 
-  //Categoria Mujeres
+        array();
+        console.log(productsArray);
+      });
 
-  const mujerFilter = document.querySelector('#mujer');
-  const mujer = products.filter((item) => item.category === 'mujer');
+      //Categoria Mujeres
 
-  mujerFilter.textContent = `Mujer (${mujer.length})`;
-  mujerFilter.addEventListener('click', (e) => {
-    e.preventDefault();
-    productsArray = mujer;
+      const mujerFilter = document.querySelector('#mujer');
+      const mujer = products.filter((item) => item.category === 'mujer');
 
-    array();
-    console.log(productsArray);
-  });
+      mujerFilter.textContent = `Mujer (${mujer.length})`;
+      mujerFilter.addEventListener('click', (e) => {
+        e.preventDefault();
+        productsArray = mujer;
 
-  // Categoria Deporte
+        array();
+        console.log(productsArray);
+      });
 
-  const deporteFilter = document.querySelector('#deporte');
-  const deporte = products.filter((item) => item.category2 === 'deporte');
+      // Categoria Deporte
 
-  deporteFilter.textContent = `Deporte (${deporte.length})`;
-  deporteFilter.addEventListener('click', (e) => {
-    e.preventDefault();
-    productsArray = deporte;
+      const deporteFilter = document.querySelector('#deporte');
+      const deporte = products.filter((item) => item.category2 === 'deporte');
 
-    array();
-    console.log(productsArray);
-  });
+      deporteFilter.textContent = `Deporte (${deporte.length})`;
+      deporteFilter.addEventListener('click', (e) => {
+        e.preventDefault();
+        productsArray = deporte;
 
-  // Categoria Casual
+        array();
+        console.log(productsArray);
+      });
 
-  const casualFilter = document.querySelector('#casual');
-  const casual = products.filter((item) => item.category2 === 'casual');
+      // Categoria Casual
 
-  casualFilter.textContent = `Casual (${casual.length})`;
-  casualFilter.addEventListener('click', (e) => {
-    e.preventDefault();
-    productsArray = casual;
+      const casualFilter = document.querySelector('#casual');
+      const casual = products.filter((item) => item.category2 === 'casual');
 
-    array();
-    console.log(productsArray);
-  });
+      casualFilter.textContent = `Casual (${casual.length})`;
+      casualFilter.addEventListener('click', (e) => {
+        e.preventDefault();
+        productsArray = casual;
 
-  // Categoria Botas
+        array();
+        console.log(productsArray);
+      });
 
-  const botasFilter = document.querySelector('#botas');
-  const botas = products.filter((item) => item.category2 === 'botas');
+      // Categoria Botas
 
-  botasFilter.textContent = `Botas (${botas.length})`;
-  botasFilter.addEventListener('click', (e) => {
-    e.preventDefault();
-    productsArray = botas;
+      const botasFilter = document.querySelector('#botas');
+      const botas = products.filter((item) => item.category2 === 'botas');
 
-    array();
-    console.log(productsArray);
-  });
+      botasFilter.textContent = `Botas (${botas.length})`;
+      botasFilter.addEventListener('click', (e) => {
+        e.preventDefault();
+        productsArray = botas;
 
-  // Filtro por Colores
-  // Color Azul
+        array();
+        console.log(productsArray);
+      });
 
-  const azulFilter = document.querySelector('#Azul');
-  const azul = products.filter((item) => item.color === 'azul');
+      // Filtro por Colores
+      // Color Azul
 
-  azulFilter.textContent = `Azul (${azul.length})`;
-  azulFilter.addEventListener('click', (e) => {
-    e.preventDefault();
-    productsArray = azul;
+      const azulFilter = document.querySelector('#Azul');
+      const azul = products.filter((item) => item.color === 'azul');
 
-    array();
-    console.log(productsArray);
-  });
+      azulFilter.textContent = `Azul (${azul.length})`;
+      azulFilter.addEventListener('click', (e) => {
+        e.preventDefault();
+        productsArray = azul;
 
-  // Color Negro
+        array();
+        console.log(productsArray);
+      });
 
-  const negroFilter = document.querySelector('#Negro');
-  const negro = products.filter((item) => item.color === 'negra');
+      // Color Negro
 
-  negroFilter.textContent = `Negro (${negro.length})`;
-  negroFilter.addEventListener('click', (e) => {
-    e.preventDefault();
-    productsArray = negro;
+      const negroFilter = document.querySelector('#Negro');
+      const negro = products.filter((item) => item.color === 'negra');
 
-    array();
-    console.log(productsArray);
-  });
+      negroFilter.textContent = `Negro (${negro.length})`;
+      negroFilter.addEventListener('click', (e) => {
+        e.preventDefault();
+        productsArray = negro;
 
-  // Color Blanco
+        array();
+        console.log(productsArray);
+      });
 
-  const blancoFilter = document.querySelector('#Blanco');
-  const blanco = products.filter((item) => item.color === 'blanca');
+      // Color Blanco
 
-  blancoFilter.textContent = `Blanco (${blanco.length})`;
-  blancoFilter.addEventListener('click', (e) => {
-    e.preventDefault();
-    productsArray = blanco;
+      const blancoFilter = document.querySelector('#Blanco');
+      const blanco = products.filter((item) => item.color === 'blanca');
 
-    array();
-    console.log(productsArray);
-  });
+      blancoFilter.textContent = `Blanco (${blanco.length})`;
+      blancoFilter.addEventListener('click', (e) => {
+        e.preventDefault();
+        productsArray = blanco;
 
-  // Color Rojo
+        array();
+        console.log(productsArray);
+      });
 
-  const rojoFilter = document.querySelector('#Rojo');
-  const rojo = products.filter((item) => item.color === 'roja');
+      // Color Rojo
 
-  rojoFilter.textContent = `Rojo (${rojo.length})`;
-  rojoFilter.addEventListener('click', (e) => {
-    e.preventDefault();
-    productsArray = rojo;
+      const rojoFilter = document.querySelector('#Rojo');
+      const rojo = products.filter((item) => item.color === 'roja');
 
-    array();
-    console.log(productsArray);
-  });
+      rojoFilter.textContent = `Rojo (${rojo.length})`;
+      rojoFilter.addEventListener('click', (e) => {
+        e.preventDefault();
+        productsArray = rojo;
+
+        array();
+        console.log(productsArray);
+      });
+    })
+    .catch((e) => {
+      console.log('Error');
+      console.log(e);
+    });
 
   renderCart();
 };

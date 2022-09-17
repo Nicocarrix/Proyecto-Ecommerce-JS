@@ -7,11 +7,13 @@
 .menu {
   font-size: 25px;
   color: #3b3b3b;
+  transition: none !important;
 }
 
 .cart-icon {
   color: #fd7e14;
   font-size: 25px;
+  transition: none !important;
 }
 
 .navbar-light .name-logo {

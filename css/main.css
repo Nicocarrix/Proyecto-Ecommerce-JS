@@ -28,6 +28,7 @@ p {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0 20px 0 #1616164b;
+  transition: 200ms ease-in-out, 200ms ease-in-out !important;
 }
 
 .logo-container {
@@ -105,6 +106,7 @@ a {
   height: 55px;
   gap: 0px;
   margin-bottom: 1.5rem;
+  margin-top: 3.5rem;
 }
 
 .search {
@@ -217,9 +219,6 @@ a {
 .filter {
   display: flex;
   width: 100%;
-}
-
-.name-price {
 }
 
 .style-cart {
@@ -410,10 +409,11 @@ a {
   font-family: system-ui, -apple-system, system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 600;
   justify-content: center;
-  min-height: 2.6rem;
+  min-height: 2.6rem !important;
   text-decoration: none;
   transition: all 250ms;
-  width: 4rem;
+  width: 4rem !important;
+  font-size: 11px;
 }
 
 .cart-footerR {
@@ -434,10 +434,12 @@ a {
   text-decoration: none;
   transition: all 250ms;
   width: 4rem;
+  margin: 11px 0 !important;
 }
 
 .cart-footerG:hover,
 .cart-footerG:focus {
+  color: #fff !important;
   background-color: #17c33a;
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
@@ -470,7 +472,30 @@ a {
 
 /* BANNER SECTION END */
 
-.gap {
+/* Contacto Styles */
+
+.direct {
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(270deg, #ffba00 0%, #ff6c00 100%);
+  box-shadow: 4px 0px 30px #1616164b;
+  margin: 20px 0;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* End Contacto Styles */
+
+.contact {
+  background-color: #000000;
   height: 400px;
 }
 
