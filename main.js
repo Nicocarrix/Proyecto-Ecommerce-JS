@@ -1,4 +1,4 @@
-let cart = [];
+let cart = [] || localStorage.getItem('carrito');
 let productsArray = [];
 const containerProducts = document.getElementById('cards-js');
 const conatinerCart = document.getElementById('cart-js');
@@ -20,9 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('keyup', (event) => {
   if (event.target.matches('#buscador'))
     document.querySelectorAll('.cards').forEach((cards) => {
-      cards.textContent.toLowerCase().includes(event.target.value.toLowerCase())
-        ? cards.classList.remove('filtro')
-        : cards.classList.add('filtro');
+      cards.textContent.toLowerCase().includes(event.target.value.toLowerCase()) ? cards.classList.remove('filtro') : cards.classList.add('filtro');
     });
 });
 
@@ -32,34 +30,123 @@ const addButton = () => {
     duration: 3000,
     newWindow: false,
     gravity: 'bottom', // `top` or `bottom`
-    position: 'right', // `left`, `center` or `right`
+    position: 'left', // `left`, `center` or `right`
     stopOnFocus: true, // Prevents dismissing of toast on hover
     style: {
-      background: 'linear-gradient(to right, #00b09b, #96c93d)',
+      background: '#c0e218',
     },
   }).showToast();
 };
 
 vaciarCart.addEventListener('click', (e) => {
-  Toastify({
-    text: 'Carrito Vaciado',
-    duration: 3000,
-    newWindow: false,
-    gravity: 'bottom', // `top` or `bottom`
-    position: 'right', // `left`, `center` or `right`
-    stopOnFocus: true, // Prevents dismissing of toast on hover
-    style: {
-      background: '#ff0e0e',
-    },
-  }).showToast();
+  if (cart.length === 0) {
+    Toastify({
+      text: 'Nada que vaciar, agregue productos',
+      duration: 3000,
+      newWindow: false,
+      gravity: 'bottom', // `top` or `bottom`
+      position: 'right', // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: '#ff0e0e',
+      },
+    }).showToast();
+  } else {
+    Toastify({
+      text: 'Carrito Vaciado',
+      duration: 3000,
+      newWindow: false,
+      gravity: 'bottom', // `top` or `bottom`
+      position: 'right', // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: '#ff0e0e',
+      },
+    }).showToast();
+  }
 
   item = cart.findIndex((obj) => obj.cantidad >= 1);
   cart[item].cantidad = 1;
-  cart.pop();
+  cart.splice(0);
 
   localStorage.setItem('carrito', JSON.stringify(cart));
   total();
   renderCart();
+});
+
+window.addEventListener('load', () => {
+  new Glider(document.getElementById('carousel-js'), {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    duration: 1,
+    dots: '.carousel__indicadores',
+    arrows: {
+      prev: '.carousel__anterior',
+      next: '.carousel__siguiente',
+    },
+    rewind: true,
+    scrollPropagate: true,
+    scrollLockDelay: 250,
+    responsive: [
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          duration: 1,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          duration: 1,
+        },
+      },
+    ],
+  });
+
+  let glider = new Glider(document.getElementById('carousel-js'), {});
+
+  const carouselTempo = () => {
+    setTimeout(() => {
+      glider.scrollItem('0', true);
+    }, 1000);
+    setTimeout(() => {
+      glider.scrollItem('1', true);
+    }, 4000);
+    setTimeout(() => {
+      glider.scrollItem('2', true);
+    }, 8000);
+    setTimeout(() => {
+      glider.scrollItem('3', true);
+    }, 12000);
+  };
+
+  carouselTempo();
+
+  setInterval(() => {
+    carouselTempo();
+  }, 15000);
+});
+
+finalizarCompra.addEventListener('click', (e) => {
+  if (cart.length === 0) {
+    Toastify({
+      text: 'Carrito vacio, agregue productos!',
+      duration: 3000,
+      newWindow: false,
+      gravity: 'bottom', // `top` or `bottom`
+      position: 'right', // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: '#ff0e0e',
+      },
+    }).showToast();
+  } else {
+    window.location.href = 'pay.html';
+  }
 });
 
 // CODIGO ESTATICO
@@ -102,6 +189,30 @@ const color = [
 ];
 
 //FUNCIONES
+
+const renderCarousel = () => {
+  fetch('/img.json')
+    .then((res) => res.json())
+    .then((caro) => {
+      console.log('API local en funcionamietno');
+      let html = '';
+      for (let i = 0; i < 4; i++) {
+        html =
+          html +
+          `
+        <div class="carousel__elemento">
+          <img class="carousel__img" src="${caro[i].img}"/>
+        </div>
+        `;
+      }
+
+      document.getElementById('carousel-js').innerHTML = html;
+    })
+    .catch((e) => {
+      console.log('Error');
+      console.log(e);
+    });
+};
 
 const renderColorFilter = () => {
   let html = '';
@@ -236,6 +347,7 @@ const addToCart = (id, price) => {
         const foundProduct = products.find((item) => item.id === id);
         cart.push(foundProduct);
       }
+
       total();
       renderCart();
     })
@@ -417,6 +529,7 @@ const filtrar = () => {
 
 //Llamada a Funciones
 
+renderCarousel();
 renderBrowser();
 renderProducts();
 renderColorFilter();

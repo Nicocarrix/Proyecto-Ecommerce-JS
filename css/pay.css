@@ -11,9 +11,6 @@ body {
 
 .contenedor {
   width: 100%;
-  max-width: 700px;
-  padding: 40px 20px;
-  margin: 55px auto auto 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +21,7 @@ body {
 .section-container {
   align-items: center;
   padding: 40px 20px;
-  margin: 55px 20px auto auto;
+  margin: 15px 20px auto auto;
   display: flex;
   flex-direction: column;
   max-width: 700px;
@@ -34,7 +31,7 @@ body {
 .tittle {
   padding-bottom: 24px;
   text-align: center;
-  margin: 67px auto 4px auto;
+  margin: 20px auto 4px auto;
   border-bottom: 1px solid #000;
 }
 
@@ -51,7 +48,6 @@ body {
 .tarjeta {
   width: 100%;
   max-width: 550px;
-  position: relative;
   color: rgb(143, 143, 143);
   transition: 0.3s ease all;
   transform: rotateY(0deg);
@@ -121,6 +117,7 @@ body {
 }
 
 /* ---------- Tarjeta Trasera ----------*/
+
 .trasera {
   background: url(../img/bg-tarjeta/bg-tarjeta-02.jpg);
   background-size: cover;
@@ -189,50 +186,27 @@ body {
   color: #fff;
 }
 
-/* ---------- Contenedor Boton ----------*/
-.contenedor-btn .btn-abrir-formulario {
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  line-height: 20px;
-  background: #ff6c00;
-  color: #fff;
-  position: relative;
-  top: -25px;
-  z-index: 3;
-  border-radius: 100%;
-  box-shadow: -5px 4px 8px rgba(24, 56, 182, 0.4);
-  padding: 5px;
-  transition: all 0.2s ease;
-  border: none;
-  cursor: pointer;
-}
-
-.contenedor-btn .btn-abrir-formulario:hover {
-  background: #fd7d21;
-}
-
-.contenedor-btn .btn-abrir-formulario.active {
-  transform: rotate(45deg);
-}
-
 /* ---------- Formulario Tarjeta ----------*/
+
+.form1,
+.form2 {
+  width: 50%;
+  margin: 0 20px;
+}
+
+#inputCuotas {
+  max-width: 220px;
+}
 
 .formulario-tarjeta {
   background: #fff;
   width: 100%;
-  max-width: 700px;
-  padding: 150px 30px 30px 30px;
+  max-width: 1100px;
+  padding: 75px 30px 30px 30px;
   border-radius: 10px;
-  position: relative;
-  top: -150px;
   z-index: 1;
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   transition: clip-path 0.3s ease-out;
-}
-
-.formulario-tarjeta.active {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  display: flex;
 }
 
 .formulario-tarjeta label {
@@ -251,7 +225,6 @@ body {
   width: 100%;
   padding: 5px 12px;
   transition: 0.3s ease all;
-  border-radius: 5px;
 }
 
 ::placeholder {
@@ -303,9 +276,9 @@ body {
 }
 
 .formulario-tarjeta .grupo-select i {
-  position: absolute;
-  top: 18px;
-  right: 15px;
+  position: relative;
+  bottom: 55px;
+  left: 80%;
   transition: 0.3s ease all;
 }
 
@@ -314,13 +287,13 @@ body {
   padding: 10px;
   font-size: 22px;
   color: #fff;
-  background: #ff6c00;
+  background: #c0e218;
   box-shadow: 2px 2px 10px 0px rgba(0, 85, 212, 0.4);
   cursor: pointer;
 }
 
 .formulario-tarjeta .btn-enviar:hover {
-  background: #da610a;
+  background: #a7c41a;
 }
 
 /* Estilos validacion */
@@ -366,26 +339,36 @@ body {
 #inputNumero,
 #inputNombre,
 #inputCCV,
-#selectYear,
-#selectMes {
-  margin-bottom: 0;
+#inputNombreDatos,
+#inputEmail,
+#telefono {
+  margin-bottom: 0px;
 }
 
 #selectYear,
-#selectMes {
+#selectMes,
+#inputCCV {
   width: 100%;
 }
+
+.altura {
+  height: 137px;
+}
+
+.cvv {
+  position: relative;
+}
+
+/* Validacion CCV */
 
 .formulario__validacion-estado-ccv {
   position: relative;
   left: 85%;
-  bottom: 32px;
+  bottom: 35px;
   z-index: 100;
   font-size: 16px;
   opacity: 0;
 }
-
-/* Validacion CCV */
 
 .formulario__validacion-estado-ccv {
   display: block;
@@ -405,132 +388,90 @@ body {
   opacity: 1;
 }
 
-.formulario__grupo-incorrecto input {
-  border: 3px solid #da1616;
-}
+/* Validacion NumC*/
 
-/* Validacion Mensaje */
-
-.formulario__mensaje {
-  height: 45px;
-  line-height: 45px;
-  background: #f66060;
-  padding: 0 15px;
-  border-radius: 3px;
-  display: none;
-}
-
-.formulario__mensaje-activo {
+.formulario__validacion-estado-numC {
   display: block;
 }
 
-.formulario__mensaje p {
-  margin: 0;
+.formulario__grupo-correcto .formulario__validacion-estado-numC {
+  color: #1ed12d;
+  opacity: 1;
 }
 
-.formulario__mensaje-exito {
-  text-align: center;
-  font-size: 14px;
-  color: #27df0f;
-  display: none;
+.formulario__grupo-incorrecto .formulario__validacion-estado-numC {
+  color: #da1616;
+  opacity: 1;
 }
 
-.formulario__mensaje-exito-activo {
-  display: block;
-}
-
-/* Formulario de Datos */
-
-.formulario-datos {
-  background: #fff;
-  width: 100%;
-  max-width: 700px;
-  border-radius: 10px;
+.formulario__validacion-estado-numC {
   position: relative;
-  z-index: 1;
-  width: 100%;
-}
-
-.formulario-datos label {
-  display: block;
-  color: #7d8994;
-  margin-bottom: 5px;
+  left: 89%;
+  bottom: 35px;
+  z-index: 100;
   font-size: 16px;
+  opacity: 0;
 }
 
-.formulario-datos input,
-.formulario-datos select,
-.btn-enviar {
-  border: 2px solid #ced6e0;
-  font-size: 18px;
-  height: 50px;
-  width: 100%;
-  padding: 5px 12px;
-  transition: 0.3s ease all;
-  border-radius: 5px;
-}
+/* Carrito Estilos checkout */
 
-::placeholder {
-  text-transform: none;
-}
-
-.formulario-datos input:hover,
-.formulario-datos select:hover {
-  border: 2px solid #93bded;
-  display: block;
-}
-
-.formulario-datos input:focus,
-.formulario-datos select:focus {
-  outline: rgb(4, 4, 4);
-  box-shadow: 1px 7px 10px -5px rgba(90, 116, 148, 0.3);
-}
-
-.formulario-datos input {
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.formulario-datos .flexbox {
+.carrito__checkout {
   display: flex;
-  justify-content: space-between;
+  margin: 70px auto;
+  flex-direction: column;
+  width: 70%;
 }
 
-.formulario-datos .telefono {
+.cart__add-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.img__cart-checkout {
+  background: center no-repeat;
+  background-size: cover;
+  margin-bottom: 10px;
+  max-width: 85px;
+  max-height: 85px;
+}
+
+.name__price-checkout {
+  align-self: center;
   width: 100%;
+  max-width: 300px;
 }
 
-.formulario-datos .cuotas {
-  width: 100%;
+.cantindad__cart-checkout {
+  align-self: center;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
 }
 
-.formulario-datos .grupo-select {
-  width: 100%;
-  margin-right: 15px;
-  position: relative;
-}
-
-.formulario-datos select {
-  -webkit-appearance: none;
-}
-
-.formulario-datos .grupo-select i {
-  position: absolute;
-  top: 18px;
-  right: 15px;
-  transition: 0.3s ease all;
-}
-
-.formulario-datos .btn-enviar {
-  border: none;
-  padding: 10px;
-  font-size: 22px;
+.cart__footerR {
+  align-items: center;
+  align-self: center;
+  background-color: #ff0e0e;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
   color: #fff;
-  background: #ff6c00;
-  box-shadow: 2px 2px 10px 0px rgba(0, 85, 212, 0.4);
   cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  justify-content: center;
+  min-height: 2.6rem;
+  text-decoration: none;
+  transition: all 250ms;
+  margin: 11px 0 !important;
+  padding: 6px;
 }
 
-.formulario-datos .btn-enviar:hover {
-  background: #da610a;
+#cancelar:hover {
+  background-color: #b11414;
+
+  color: #fff;
 }

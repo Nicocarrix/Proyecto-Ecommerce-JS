@@ -1,5 +1,4 @@
 const tarjeta = document.querySelector('#tarjeta'),
-  btnAbrirFormulario = document.querySelector('#btn-abrir-formulario'),
   formulario = document.querySelector('#formulario-tarjeta'),
   numeroTarjeta = document.querySelector('#tarjeta .numero'),
   nombreTarjeta = document.querySelector('#tarjeta .nombre'),
@@ -11,35 +10,31 @@ const tarjeta = document.querySelector('#tarjeta'),
   inputs = document.querySelectorAll('#formulario-tarjeta input'),
   btnEnviar = document.getElementById('btnEnviar');
 
-const formDatos = document.querySelector('#formulario-datos'),
-  nombreDatos = document.querySelector('#grupo__nombre'),
-  emailDatos = document.querySelector('#grupo__email'),
-  telefonoDatos = document.querySelector('#grupo__telefono'),
-  cuotasDatos = document.querySelector('#grupo__cuotas');
+const nombreDatos = document.querySelector('#grupo__nombreDatos'),
+  emailDatos = document.querySelector('#grupo__emailDatos'),
+  telefonoDatos = document.querySelector('#grupo__telefonoDatos'),
+  cuotas = document.querySelector('#inputCuotas');
 
-const limpiarHtml = () => {
-  firma.textContent = '';
-  numeroTarjeta.textContent = '#### #### #### ####';
-  nombreTarjeta.textContent = '';
-  mesExpiracion.innerHTML = `MM`;
-  yearExpiracion.innerHTML = `AA`;
-  ccv.textContent = '';
-};
+const cancelar = document.getElementById('cancelar');
+
+// * Recuperacion de carrito
+
+cart = JSON.parse(localStorage.getItem('carrito'));
 
 // * Input nombre Datos
 
-formDatos.inputNombreDatos.addEventListener('keyup', (e) => {
+formulario.inputNombreDatos.addEventListener('keyup', (e) => {
   let valorInput = e.target.value;
 
-  formDatos.inputNombreDatos.value = valorInput.replace(/[0-9]/g, '');
+  formulario.inputNombreDatos.value = valorInput.replace(/[0-9]/g, '');
 });
 
 // * Input telefono Datos
 
-formDatos.inputTelefono.addEventListener('keyup', (e) => {
+formulario.telefonoDatos.addEventListener('keyup', (e) => {
   let valorInput = e.target.value;
 
-  formDatos.inputTelefono.value = valorInput.replace(/\s/g, '').replace(/\D/g, '');
+  formulario.telefonoDatos.value = valorInput.replace(/\s/g, '').replace(/\D/g, '');
 });
 
 // * Volteamos la tarjeta para mostrar el frente.
@@ -52,12 +47,6 @@ const mostrarFrente = () => {
 // * Rotacion de la tarjeta
 tarjeta.addEventListener('click', () => {
   tarjeta.classList.toggle('active');
-});
-
-// * Boton de abrir formulario
-btnAbrirFormulario.addEventListener('click', () => {
-  btnAbrirFormulario.classList.toggle('active');
-  formulario.classList.toggle('active');
 });
 
 // * Input numero de tarjeta
@@ -144,11 +133,16 @@ formulario.inputCCV.addEventListener('keyup', () => {
 
 const date = () => {
   datos = {
+    //Form Tarjeta
     numeroTarjeta: false,
     nombreTarjeta: false,
     mesTarjeta: false,
     yearTarjeta: false,
     ccvTarjeta: false,
+    //Form Datos
+    nombreDatos: false,
+    emailDatos: false,
+    telefonoDatos: false,
   };
 };
 
@@ -161,15 +155,21 @@ const expresiones = {
   ccvTarjeta: /^\d{3}$/,
   // Form Datos
   nombreDatos: /^[a-zA-ZÀ-ÿ\s]{5,40}$/,
-  // emailDatos:
+  emailDatos: /\w+@\w+\.com/,
+  telefonoDatos: /^\d{11}$/,
 };
 
 let datos = {
+  //Form Tarjeta
   numeroTarjeta: false,
   nombreTarjeta: false,
   mesTarjeta: false,
   yearTarjeta: false,
   ccvTarjeta: false,
+  //Form Datos
+  nombreDatos: false,
+  emailDatos: false,
+  telefonoDatos: false,
 };
 
 const validarFormulario = (e) => {
@@ -179,7 +179,6 @@ const validarFormulario = (e) => {
       break;
     case 'nombreTarjeta':
       validarCampo(expresiones.nombreTarjeta, e.target, 'nombreTarjeta');
-
       break;
     case 'ccvTarjeta':
       validarCCV(expresiones.ccvTarjeta, e.target, 'ccvTarjeta');
@@ -189,6 +188,15 @@ const validarFormulario = (e) => {
       break;
     case 'yearTarjeta':
       validarCCV(expresiones.yearTarjeta, e.target, 'yearTarjeta');
+      break;
+    case 'nombreDatos':
+      validarCampo(expresiones.nombreDatos, e.target, 'nombreDatos');
+      break;
+    case 'emailDatos':
+      validarCampo(expresiones.emailDatos, e.target, 'emailDatos');
+      break;
+    case 'telefonoDatos':
+      validarCampo(expresiones.telefonoDatos, e.target, 'telefonoDatos');
       break;
   }
 };
@@ -238,15 +246,49 @@ inputs.forEach((input) => {
 
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (datos.numeroTarjeta && datos.nombreTarjeta && datos.ccvTarjeta && datos.mesTarjeta && datos.yearTarjeta) {
-    formulario.reset();
-
+  if (
+    datos.nombreDatos
+    /* 
+    datos.nombreTarjeta &&
+    datos.numeroTarjeta &&
+    datos.ccvTarjeta &&
+    datos.mesTarjeta &&
+    datos.yearTarjeta &&
+    datos.emailDatos &&
+    datos.telefonoDatos */
+  ) {
     document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
       icono.classList.remove('formulario__grupo-correcto');
     });
 
-    limpiarHtml();
-    date();
+    let precios = nPrecio / cuotas.value;
+
+    swal({
+      title: 'Compra exitosa!',
+      text: `     Total abonado: ${cuotas.value} Cuot. de $${Math.trunc(precios)},
+      Confirmacion de compra enviado a su correo electronico`,
+      icon: 'success',
+      buttons: {
+        catch: {
+          text: 'OK',
+          value: 'catch',
+        },
+      },
+    }).then((value) => {
+      switch (value) {
+        case 'catch':
+          window.location.href = '/index.html';
+          break;
+
+        default:
+          window.location.href = '/index.html';
+      }
+    });
+
+    cart.length = 0;
+
+    total();
+    renderCart();
   } else {
     Toastify({
       text: 'Llene los campos requeridos',
@@ -264,3 +306,94 @@ formulario.addEventListener('submit', (e) => {
     });
   }
 });
+
+const cancel = () => {
+  cancelar.addEventListener('click', (e) => {
+    item = cart.findIndex((obj) => obj.cantidad >= 1);
+    cart[item].cantidad = 1;
+    cart.splice(0);
+
+    localStorage.setItem('carrito', JSON.stringify(cart));
+
+    total();
+    renderCart();
+  });
+};
+
+console.log(cart);
+
+const total = () => {
+  let priceTotal = document.getElementById('total-id');
+
+  nPrecio = Object.values(cart).reduce((acc, { cantidad, price }) => acc + cantidad * price, 0);
+  priceTotal.textContent = `Total: $${nPrecio}`;
+
+  renderCart();
+};
+
+const renderCart = () => {
+  let html = '';
+  for (let i = 0; i < cart.length; i++) {
+    html =
+      html +
+      `
+    <div class="cart__add-child">
+    <img class="img__cart-checkout" src="${cart[i].img}"/>
+    <div class="name__price-checkout">
+    <p class="style-cart">${cart[i].name}</p> 
+    <p id="price">$${cart[i].price}</p>
+    </div>
+    <p class="cantindad__cart-checkout" id="${cart[i].id}">${cart[i].cantidad} Und.</p> 
+    <a class="cart link-light" id="remove" onclick="removeCart(${cart[i].id});">X</a>
+    </div>
+    `;
+  }
+  document.getElementById('cart-js').innerHTML = html;
+  localStorage.setItem('carrito', JSON.stringify(cart));
+};
+
+const removeCart = (cartId) => {
+  const item = cart.find((cart) => cart.id === cartId);
+  const indice = cart.indexOf(item);
+
+  if (item) {
+    const restar = cart.map((carts) => {
+      if (carts.id === cartId) {
+        carts.cantidad--;
+
+        if (carts.cantidad === 0) {
+          cart.splice(indice, 1);
+          carts.cantidad = 1;
+        }
+        renderCart();
+      }
+    });
+  }
+
+  location.reload();
+
+  localStorage.setItem('carrito', JSON.stringify(cart));
+  total();
+  renderCart();
+};
+
+if (cart.length === 0) {
+  window.location.href = '/index.html';
+}
+
+// * Cuotas
+const cuotasFunction = () => {
+  for (let i = 1; i <= 3; i++) {
+    let opcion = document.createElement('option');
+    opcion.value = i;
+    let precios = nPrecio / opcion.value;
+    opcion.textContent = i + ` Cuot. de $${Math.trunc(precios)}`;
+
+    formulario.inputCuotas.appendChild(opcion);
+  }
+};
+
+cancel();
+total();
+renderCart();
+cuotasFunction();

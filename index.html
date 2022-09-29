@@ -8,13 +8,18 @@
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/icon.css" />
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css"
+      integrity="sha256-o2HrB5EL5AdkNI2+9n8NzI0p6VflIDQiimYGrayGE30="
+      crossorigin="anonymous"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
-
     <title>ShoeSport</title>
   </head>
   <body>
@@ -54,7 +59,7 @@
                 </div>
                 <div class="total-container">
                   <span class="acc-container">
-                    <a class="cart-footerG" id="finalizar" href="pay.html">Comprar</a>
+                    <a class="cart-footerG" id="finalizar">Comprar</a>
                     <p class="cart-footerR" id="vaciar">Vaciar</p>
                   </span>
                   <span class="total" id="total-id"></span>
@@ -96,6 +101,22 @@
       <input class="input-class" type="text" name="buscador" id="buscador" placeholder="Buscar por nombre" />
     </form>
 
+    <div class="carousel">
+      <div class="carousel__contenedor">
+        <button arial-label="Anterior" class="carousel__anterior">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="carousel__lista" id="carousel-js"></div>
+
+        <div role="tablist" class="carousel__indicadores"></div>
+
+        <button arial-label="Siguiente" class="carousel__siguiente">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
     <div class="container-section">
       <div class="filter-container">
         <div class="filter-panel">
@@ -116,8 +137,12 @@
 
     <div class="footer">
       <div class="map" id="mapa">
-        <span class="direct">Local 3, Segundo piso</span>
+        <span class="direct">
+          Nos ubicamos en <br />
+          Local 3, Segundo piso</span
+        >
         <iframe
+          class="maps"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.9823603396726!2d-58.72917994869198!3d-34.45259565693003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca20c117bf0e3%3A0xcd856576ed4b2105!2sTortugas%20Open%20Mall!5e0!3m2!1ses-419!2sar!4v1663022717138!5m2!1ses-419!2sar"
           width="600"
           height="450"
@@ -127,11 +152,87 @@
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <div class="contact"></div>
     </div>
+
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h6>About Us</h6>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h6>Newsletter</h6>
+              <p>Stay update with our latest</p>
+              <div class="" id="mc_embed_signup">
+                <form
+                  target="_blank"
+                  novalidate="true"
+                  action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                  method="get"
+                  class="form-inline"
+                >
+                  <div class="d-flex flex-row">
+                    <input
+                      class="form-control"
+                      name="EMAIL"
+                      placeholder="Enter Email"
+                      onfocus="this.placeholder = ''"
+                      onblur="this.placeholder = 'Enter Email '"
+                      required=""
+                      type="email"
+                    />
+
+                    <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                  </div>
+                  <div class="info"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="single-footer-widget mail-chimp">
+              <h6 class="mb-20">Instragram Feed</h6>
+              <ul class="instafeed d-flex flex-wrap">
+                <li><img src="img/footer-img/i1.jpg" alt="" /></li>
+                <li><img src="img/footer-img/i2.jpg" alt="" /></li>
+                <li><img src="img/footer-img/i3.jpg" alt="" /></li>
+                <li><img src="img/footer-img/i4.jpg" alt="" /></li>
+                <li><img src="img/footer-img/i5.jpg" alt="" /></li>
+                <li><img src="img/footer-img/i6.jpg" alt="" /></li>
+                <li><img src="img/footer-img/i7.jpg" alt="" /></li>
+                <li><img src="img/footer-img/i8.jpg" alt="" /></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h6>Follow Us</h6>
+              <p>Let us be social</p>
+              <div class="footer-social d-flex align-items-center">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-behance"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+          <p class="footer-text m-0">
+            Copyright 2022 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+            <a href="#" target="_blank">Nicolas</a>
+          </p>
+        </div>
+      </div>
+    </footer>
 
     <!-- SCRIPTS -->
 
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
     <script src="https://kit.fontawesome.com/8fe8031e09.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script

@@ -1,17 +1,17 @@
 .logo {
   font-size: 37px;
   margin-left: 15px;
-  color: #fd7e14;
+  color: #222 !important;
 }
 
 .menu {
   font-size: 25px;
-  color: #3b3b3b;
+  color: #222 !important;
   transition: none !important;
 }
 
 .cart-icon {
-  color: #fd7e14;
+  color: #c0e218;
   font-size: 25px;
   transition: none !important;
 }
@@ -21,7 +21,7 @@
 }
 
 .search {
-  color: #fff;
+  color: #222 !important;
 }
 
 .eliminateIcon {
