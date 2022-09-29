@@ -201,7 +201,7 @@ const renderCarousel = () => {
           html +
           `
         <div class="carousel__elemento">
-          <img class="carousel__img" src="img/banner-img/adidas.jpg"/>
+          <img class="carousel__img" src="${caro[i].img}"/>
         </div>
         `;
       }
