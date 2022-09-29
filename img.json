@@ -1,14 +1,14 @@
 [
   {
-    "img": "../img/banner-img/adidas.jpg"
+    "img": "img/banner-img/adidas.jpg"
   },
   {
-    "img": "../img/banner-img/futbol.jpg"
+    "img": "img/banner-img/futbol.jpg"
   },
   {
-    "img": "../img/banner-img/messi.jpg"
+    "img": "img/banner-img/messi.jpg"
   },
   {
-    "img": "../img/banner-img/vuelve.jpg"
+    "img": "img/banner-img/vuelve.jpg"
   }
 ]
