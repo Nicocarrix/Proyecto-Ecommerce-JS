@@ -191,7 +191,7 @@ const color = [
 //FUNCIONES
 
 const renderCarousel = () => {
-  fetch('/img.json')
+  fetch('img.json')
     .then((res) => res.json())
     .then((caro) => {
       console.log('API local en funcionamietno');
@@ -257,7 +257,7 @@ const renderBrowser = () => {
 };
 
 const renderProducts = () => {
-  fetch('/data.json')
+  fetch('data.json')
     .then((res) => res.json())
     .then((json) => {
       console.log('API local en funcionamietno');
@@ -330,7 +330,7 @@ const renderCart = () => {
 };
 
 const addToCart = (id, price) => {
-  fetch('/data.json')
+  fetch('data.json')
     .then((res) => res.json())
     .then((products) => {
       console.log('API local en funcionamietno(renderCart)');
@@ -388,7 +388,7 @@ const total = () => {
 };
 
 const filtrar = () => {
-  fetch('/data.json')
+  fetch('data.json')
     .then((res) => res.json())
     .then((products) => {
       console.log('API local en funcionamietno (Filtrar)');
