@@ -1,14 +1,18 @@
 [
   {
+    "id": 0,
     "img": "img/banner-img/adidas.jpg"
   },
   {
+     "id": 1,
     "img": "img/banner-img/futbol.jpg"
   },
   {
+     "id": 2,
     "img": "img/banner-img/messi.jpg"
   },
   {
+     "id": 3,
     "img": "img/banner-img/vuelve.jpg"
   }
 ]
