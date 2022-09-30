@@ -277,11 +277,11 @@ formulario.addEventListener('submit', (e) => {
     }).then((value) => {
       switch (value) {
         case 'catch':
-          window.location.href = '/index.html';
+          window.location.href = 'https://nicocarrix.github.io/Proyecto-Final-JavaScript/index.html';
           break;
 
         default:
-          window.location.href = '/index.html';
+          window.location.href = 'https://nicocarrix.github.io/Proyecto-Final-JavaScript/index.html';
       }
     });
 
@@ -378,7 +378,7 @@ const removeCart = (cartId) => {
 };
 
 if (cart.length === 0) {
-  window.location.href = '/index.html';
+  window.location.href = 'https://nicocarrix.github.io/Proyecto-Final-JavaScript/index.html';
 }
 
 // * Cuotas
