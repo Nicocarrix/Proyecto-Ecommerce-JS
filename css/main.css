@@ -144,6 +144,11 @@ a {
   border-radius: 0;
 }
 
+.glider {
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+}
+
 .carousel__indicadores .glider-dot:hover {
   background: #c0e218;
 
