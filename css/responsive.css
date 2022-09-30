@@ -29,26 +29,28 @@
 }
 
 @media screen and (max-width: 500px) {
-  iframe {
+  .map iframe {
     width: 400px;
   }
 
   .carousel {
     width: 80%;
+    margin-top: 111px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 400px) {
   .map iframe {
-    width: 300px;
-  }
-  
-  .logo{
-    display:none;
+    width: 300px !important;
   }
 
   .carousel {
     width: 70%;
+    margin-top: 111px;
+  }
+
+  .logo {
+    display: none !important;
   }
 }
 
