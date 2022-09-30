@@ -5,14 +5,14 @@
   },
   {
      "id": 1,
-    "img": "Proyecto-Final-JavaScript/img/banner-img/futbol.jpg"
+    "img": "https://raw.githubusercontent.com/Nicocarrix/Proyecto-Final-JavaScript/main/img/banner-img/futbol.png"
   },
   {
      "id": 2,
-    "img": "Proyecto-Final-JavaScript/img/banner-img/messi.jpg"
+    "img": "https://raw.githubusercontent.com/Nicocarrix/Proyecto-Final-JavaScript/main/img/banner-img/messi.png"
   },
   {
      "id": 3,
-    "img": "Proyecto-Final-JavaScript/img/banner-img/vuelve.jpg"
+    "img": "https://raw.githubusercontent.com/Nicocarrix/Proyecto-Final-JavaScript/main/img/banner-img/vuelve.png"
   }
 ]
