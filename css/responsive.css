@@ -38,6 +38,20 @@
   }
 }
 
+@media screen and (max-width: 320px) {
+  .map iframe {
+    width: 300px;
+  }
+  
+  .logo{
+    display:none;
+  }
+
+  .carousel {
+    width: 70%;
+  }
+}
+
 @media screen and (min-width: 1300px) {
   .cards-container {
     grid-template-columns: repeat(3, 1fr);
